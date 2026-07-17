@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: phox-tools
+Version: 1.0.0
+Summary: A Swiss Army Knife for Hackers and Developers (zero dependencies)
+Author: Phox
+Requires-Python: >=3.8
+Dynamic: author
+Dynamic: requires-python
+Dynamic: summary

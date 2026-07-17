@@ -1,0 +1,2 @@
+[console_scripts]
+phox = phox.cli:main
