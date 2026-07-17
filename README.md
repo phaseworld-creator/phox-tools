@@ -1,7 +1,8 @@
 # PHOX Tools
 
 A Swiss Army Knife for Hackers and Developers.
-
+##
+See all the [commands](https://github.com/phaseworld-creator/phox-tools/blob/main/HELP.md)
 ## Install
 
 ```bash
