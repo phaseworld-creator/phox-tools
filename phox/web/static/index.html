@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phox Tools</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app">
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <span class="logo-icon">&#x1F98A;</span>
+          <span class="logo-text">PHOX</span>
+          <span class="logo-ui">TOOLS</span>
+        </div>
+        <div class="logo-sub">Swiss Army Knife</div>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">HOME</div>
+        <button class="nav-btn active" data-page="home" onclick="showPage('home')">
+          <span class="nav-icon">&#x1F3E0;</span> Dashboard
+        </button>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">ENCODING</div>
+        <button class="nav-btn" data-page="encode" onclick="showPage('encode')">
+          <span class="nav-icon">&#x1F510;</span> Encoder/Decoder
+        </button>
+        <button class="nav-btn" data-page="hash" onclick="showPage('hash')">
+          <span class="nav-icon">#&#xFE0F;</span> Hash
+        </button>
+        <button class="nav-btn" data-page="qr" onclick="showPage('qr')">
+          <span class="nav-icon">&#x1F4F1;</span> QR Code
+        </button>
+        <button class="nav-btn" data-page="password" onclick="showPage('password')">
+          <span class="nav-icon">&#x1F511;</span> Password Gen
+        </button>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">RECON</div>
+        <button class="nav-btn" data-page="ip" onclick="showPage('ip')">
+          <span class="nav-icon">&#x1F310;</span> IP Lookup
+        </button>
+        <button class="nav-btn" data-page="dns" onclick="showPage('dns')">
+          <span class="nav-icon">&#x1F4E1;</span> DNS Lookup
+        </button>
+        <button class="nav-btn" data-page="whois" onclick="showPage('whois')">
+          <span class="nav-icon">&#x2261;</span> WHOIS
+        </button>
+        <button class="nav-btn" data-page="username" onclick="showPage('username')">
+          <span class="nav-icon">&#x1F464;</span> Username Check
+        </button>
+        <button class="nav-btn" data-page="portscan" onclick="showPage('portscan')">
+          <span class="nav-icon">&#x1F50D;</span> Port Scan
+        </button>
+        <button class="nav-btn" data-page="subdomain" onclick="showPage('subdomain')">
+          <span class="nav-icon">&#x1F4C2;</span> Subdomain Enum
+        </button>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">WEB</div>
+        <button class="nav-btn" data-page="search" onclick="showPage('search')">
+          <span class="nav-icon">&#x1F50E;</span> Web Search
+        </button>
+        <button class="nav-btn" data-page="api" onclick="showPage('api')">
+          <span class="nav-icon">&#x1F4E1;</span> API Request
+        </button>
+        <button class="nav-btn" data-page="webhook" onclick="showPage('webhook')">
+          <span class="nav-icon">&#x1F4E4;</span> Webhook
+        </button>
+        <button class="nav-btn" data-page="cloner" onclick="showPage('cloner')">
+          <span class="nav-icon">&#x1F578;&#xFE0F;</span> Website Cloner
+        </button>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">CONVERTERS</div>
+        <button class="nav-btn" data-page="uuid" onclick="showPage('uuid')">
+          <span class="nav-icon">&#x1F195;</span> UUID Gen
+        </button>
+        <button class="nav-btn" data-page="timestamp" onclick="showPage('timestamp')">
+          <span class="nav-icon">&#x23F0;</span> Timestamp
+        </button>
+        <button class="nav-btn" data-page="binary" onclick="showPage('binary')">
+          <span class="nav-icon">&#x1F0CF;</span> Binary
+        </button>
+        <button class="nav-btn" data-page="morse" onclick="showPage('morse')">
+          <span class="nav-icon">&#x1F4E1;</span> Morse Code
+        </button>
+        <button class="nav-btn" data-page="colorconv" onclick="showPage('colorconv')">
+          <span class="nav-icon">&#x1F3A8;</span> Color Conv
+        </button>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">TEXT</div>
+        <button class="nav-btn" data-page="lorem" onclick="showPage('lorem')">
+          <span class="nav-icon">&#x1F4DD;</span> Lorem Ipsum
+        </button>
+        <button class="nav-btn" data-page="diff" onclick="showPage('diff')">
+          <span class="nav-icon">&#x2194;</span> Text Diff
+        </button>
+        <button class="nav-btn" data-page="hashlookup" onclick="showPage('hashlookup')">
+          <span class="nav-icon">&#x1F510;</span> Hash Lookup
+        </button>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">SECURITY</div>
+        <button class="nav-btn" data-page="obfuscate" onclick="showPage('obfuscate')">
+          <span class="nav-icon">&#x1F6E1;&#xFE0F;</span> Obfuscator
+        </button>
+        <button class="nav-btn" data-page="hashfile" onclick="showPage('hashfile')">
+          <span class="nav-icon">&#x1F4C4;</span> Hash File
+        </button>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">TOOLS</div>
+        <button class="nav-btn" data-page="rand" onclick="showPage('rand')">
+          <span class="nav-icon">&#x1F3B2;</span> Random Gen
+        </button>
+        <button class="nav-btn" data-page="colors" onclick="showPage('colors')">
+          <span class="nav-icon">&#x1F3A8;</span> Colors
+        </button>
+        <button class="nav-btn" data-page="settings" onclick="showPage('settings')">
+          <span class="nav-icon">&#x2699;&#xFE0F;</span> Config
+        </button>
+      </div>
+    </nav>
+    <button class="sidebar-toggle hamburger" id="hamburger" onclick="toggleSidebar()">&#x2630;</button>
+    <main class="main-content content" id="content">
+      <div class="page active" id="page-home">
+        <div class="page-header">
+          <h1>Dashboard</h1>
+          <p>Phox Tools &mdash; Swiss Army Knife for Hackers</p>
+        </div>
+        <div class="card-grid">
+          <div class="tool-card" onclick="showPage('encode')">
+            <span class="card-icon">&#x1F510;</span>
+            <span class="card-title">Encoder/Decoder</span>
+            <span class="card-desc">Encode and decode text in various formats</span>
+          </div>
+          <div class="tool-card" onclick="showPage('hash')">
+            <span class="card-icon">#&#xFE0F;&#x20E3;</span>
+            <span class="card-title">Hash Generator</span>
+            <span class="card-desc">Hash text with MD5, SHA256, SHA512 and more</span>
+          </div>
+          <div class="tool-card" onclick="showPage('qr')">
+            <span class="card-icon">&#x1F4F1;</span>
+            <span class="card-title">QR Code Generator</span>
+            <span class="card-desc">Generate QR codes from text or URLs</span>
+          </div>
+          <div class="tool-card" onclick="showPage('password')">
+            <span class="card-icon">&#x1F511;</span>
+            <span class="card-title">Password Generator</span>
+            <span class="card-desc">Generate secure random passwords</span>
+          </div>
+          <div class="tool-card" onclick="showPage('ip')">
+            <span class="card-icon">&#x1F310;</span>
+            <span class="card-title">IP Lookup</span>
+            <span class="card-desc">Geolocation and network info for any IP</span>
+          </div>
+          <div class="tool-card" onclick="showPage('dns')">
+            <span class="card-icon">&#x1F4E1;</span>
+            <span class="card-title">DNS Lookup</span>
+            <span class="card-desc">Resolve DNS records for any domain</span>
+          </div>
+          <div class="tool-card" onclick="showPage('username')">
+            <span class="card-icon">&#x1F464;</span>
+            <span class="card-title">Username Checker</span>
+            <span class="card-desc">Check username availability across 40+ platforms</span>
+          </div>
+          <div class="tool-card" onclick="showPage('portscan')">
+            <span class="card-icon">&#x1F50D;</span>
+            <span class="card-title">Port Scanner</span>
+            <span class="card-desc">Scan open ports on any host</span>
+          </div>
+          <div class="tool-card" onclick="showPage('search')">
+            <span class="card-icon">&#x1F50E;</span>
+            <span class="card-title">Web Search</span>
+            <span class="card-desc">Search the web via DuckDuckGo</span>
+          </div>
+          <div class="tool-card" onclick="showPage('webhook')">
+            <span class="card-icon">&#x1F4E4;</span>
+            <span class="card-title">Webhook Sender</span>
+            <span class="card-desc">Send webhooks to Discord and other services</span>
+          </div>
+          <div class="tool-card" onclick="showPage('cloner')">
+            <span class="card-icon">&#x1F578;&#xFE0F;</span>
+            <span class="card-title">Website Cloner</span>
+            <span class="card-desc">Clone entire websites for offline viewing</span>
+          </div>
+          <div class="tool-card" onclick="showPage('obfuscate')">
+            <span class="card-icon">&#x1F6E1;&#xFE0F;</span>
+            <span class="card-title">Python Obfuscator</span>
+            <span class="card-desc">Obfuscate Python source code</span>
+          </div>
+          <div class="tool-card" onclick="showPage('rand')">
+            <span class="card-icon">&#x1F3B2;</span>
+            <span class="card-title">Random Generator</span>
+            <span class="card-desc">Generate random strings, numbers, UUIDs, passwords</span>
+          </div>
+          <div class="tool-card" onclick="showPage('api')">
+            <span class="card-icon">&#x1F4E1;</span>
+            <span class="card-title">API Client</span>
+            <span class="card-desc">Make HTTP requests to any API</span>
+          </div>
+          <div class="tool-card" onclick="showPage('subdomain')">
+            <span class="card-icon">&#x1F4C2;</span>
+            <span class="card-title">Subdomain Enum [WIP]</span>
+            <span class="card-desc">Enumerate subdomains of a domain</span>
+          </div>
+          <div class="tool-card" onclick="showPage('settings')">
+            <span class="card-icon">&#x2699;&#xFE0F;</span>
+            <span class="card-title">Config</span>
+            <span class="card-desc">Customize Phox settings</span>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-encode">
+        <div class="page-header">
+          <h1>Encoder / Decoder</h1>
+          <p>Transform text between Base64, Hex, and URL encoding</p>
+        </div>
+        <div class="card">
+          <div class="tabs">
+            <button class="tab active" onclick="switchEncTab('encode')">Encode</button>
+            <button class="tab" onclick="switchEncTab('decode')">Decode</button>
+          </div>
+          <div class="form-group">
+            <label>Text</label>
+            <textarea id="enc-text" class="form-textarea" rows="3" placeholder="Enter text to encode or decode..."></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Format</label>
+              <select id="enc-format" class="form-select">
+                <option value="base64">Base64</option>
+                <option value="hex">Hex</option>
+                <option value="url">URL Encoding</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" onclick="runEncodeDecode()">Run</button>
+          </div>
+          <div class="form-group" id="enc-result-group" style="display:none">
+            <label>Result</label>
+            <div class="result-box" id="enc-result"></div>
+            <button class="btn btn-copy" onclick="copyResult('enc-result')">Copy</button>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-hash">
+        <div class="page-header">
+          <h1>Hash Generator</h1>
+          <p>Generate cryptographic hashes of text using various algorithms</p>
+        </div>
+        <div class="card">
+          <div class="form-group">
+            <label>Text</label>
+            <textarea id="hash-text" class="form-textarea" rows="3" placeholder="Enter text to hash..."></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Algorithm</label>
+              <select id="hash-algo" class="form-select">
+                <option value="sha256">SHA-256</option>
+                <option value="md5">MD5</option>
+                <option value="sha1">SHA-1</option>
+                <option value="sha512">SHA-512</option>
+                <option value="blake2b">BLAKE2b</option>
+                <option value="blake2s">BLAKE2s</option>
+                <option value="all">All Algorithms</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" onclick="runHash()">Hash</button>
+          </div>
+          <div class="form-group" id="hash-result-group" style="display:none">
+            <label>Result</label>
+            <div class="result-box" id="hash-result"></div>
+            <button class="btn btn-copy" onclick="copyResult('hash-result')">Copy</button>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-qr">
+        <div class="page-header">
+          <h1>QR Code Generator</h1>
+          <p>Generate QR codes from text or URLs</p>
+        </div>
+        <div class="card">
+          <div class="form-group">
+            <label>Text / URL</label>
+            <input type="text" id="qr-text" class="form-input" placeholder="https://example.com">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Format</label>
+              <select id="qr-format" class="form-select">
+                <option value="svg">SVG (image)</option>
+                <option value="txt">Text (terminal) [WIP]</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Size</label>
+              <input type="number" id="qr-size" class="form-input" value="200" min="100" max="1000" step="50">
+            </div>
+            <button class="btn btn-primary" onclick="runQR()">Generate</button>
+          </div>
+          <div class="qr-output" id="qr-output"></div>
+        </div>
+      </div>
+      <div class="page" id="page-password">
+        <div class="page-header">
+          <h1>Password Generator</h1>
+          <p>Generate cryptographically secure random passwords</p>
+        </div>
+        <div class="card">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Length</label>
+              <input type="number" id="pw-length" class="form-input" value="16" min="4" max="128">
+            </div>
+            <div class="form-group">
+              <label>Count</label>
+              <input type="number" id="pw-count" class="form-input" value="5" min="1" max="20">
+            </div>
+          </div>
+          <div class="form-row checks">
+            <label><input type="checkbox" id="pw-upper" checked> Uppercase</label>
+            <label><input type="checkbox" id="pw-digits" checked> Digits</label>
+            <label><input type="checkbox" id="pw-special" checked> Special</label>
+          </div>
+          <button class="btn btn-primary" onclick="runPassword()">Generate</button>
+          <div class="form-group" id="pw-result-group" style="display:none">
+            <label>Passwords</label>
+            <div class="result-box mono" id="pw-result"></div>
+            <button class="btn btn-copy" onclick="copyResult('pw-result')">Copy</button>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-ip">
+        <div class="page-header">
+          <h1>IP Lookup</h1>
+          <p>Geolocation and network information for any IP address</p>
+        </div>
+        <div class="card">
+          <div class="form-group">
+            <label>IP Address</label>
+            <div class="input-row">
+              <input type="text" id="ip-address" class="form-input" placeholder="Leave empty for your IP">
+              <button class="btn btn-primary" onclick="runIPLookup()">Lookup</button>
+            </div>
+          </div>
+          <div class="result-table" id="ip-result" style="display:none"></div>
+          <div style="display:none" id="ip-save-group">
+            <button class="btn btn-secondary btn-save" onclick="saveIPLookup()">Save to File</button>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-dns">
+        <div class="page-header">
+          <h1>DNS Lookup</h1>
+          <p>Resolve domain name records for any domain</p>
+        </div>
+        <div class="card">
+          <div class="form-row">
+            <div class="form-group" style="flex:1">
+              <label>Domain</label>
+              <input type="text" id="dns-domain" class="form-input" placeholder="example.com">
+            </div>
+            <div class="form-group" style="flex:0 0 140px">
+              <label>Record Type</label>
+              <select id="dns-type" class="form-select">
+                <option value="A">A</option>
+                <option value="AAAA">AAAA</option>
+                <option value="MX">MX</option>
+                <option value="NS">NS</option>
+                <option value="TXT">TXT</option>
+                <option value="CNAME">CNAME</option>
+                <option value="SOA">SOA</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" onclick="runDNS()">Lookup</button>
+          </div>
+          <div class="form-group" id="dns-result-group" style="display:none">
+            <label>Records</label>
+            <div class="result-box mono" id="dns-result"></div>
+            <button class="btn btn-copy" onclick="copyResult('dns-result')">Copy</button>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-whois">
+        <div class="page-header">
+          <h1>WHOIS Lookup</h1>
+          <p>Query domain registration and ownership information via RDAP</p>
+        </div>
+        <div class="card">
+          <div class="form-group">
+            <label>Domain</label>
+            <div class="input-row">
+              <input type="text" id="whois-domain" class="form-input" placeholder="example.com">
+              <button class="btn btn-primary" onclick="runWhois()">Lookup</button>
+            </div>
+          </div>
+          <div class="result-table" id="whois-result" style="display:none"></div>
+        </div>
+      </div>
+      <div class="page" id="page-username">
+        <div class="page-header">
+          <h1>Username Checker</h1>
+          <p>Check username availability across 40+ platforms</p>
+        </div>
+        <div class="card">
+          <div class="form-group">
+            <label>Username</label>
+            <div class="input-row">
+              <input type="text" id="username-name" class="form-input" placeholder="Enter a username to check">
+              <button class="btn btn-primary" onclick="runUsername()">Check</button>
+            </div>
+          </div>
+          <div id="username-results"></div>
+          <div style="display:none" id="username-save-group">
+            <button class="btn btn-secondary btn-save" onclick="saveUsername()">Save to File</button>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-portscan">
+        <div class="page-header">
+          <h1>Port Scanner</h1>
+          <p>Scan open ports on a target host</p>
+        </div>
+        <div class="card">
+          <div class="form-row">
+            <div class="form-group" style="flex:1">
+              <label>Host / IP</label>
+              <input type="text" id="portscan-host" class="form-input" placeholder="192.168.1.1 or example.com">
+            </div>
+            <div class="form-group" style="flex:0 0 160px">
+              <label>Ports</label>
+              <input type="text" id="portscan-ports" class="form-input" placeholder="80,443 or 1-1000 or top100">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Timeout (seconds)</label>
+            <input type="number" id="portscan-timeout" class="form-input" value="1" min="0.1" max="5" step="0.1">
+          </div>
+          <button class="btn btn-primary" onclick="runPortscan()">Scan</button>
+          <div class="form-group" id="portscan-result-group" style="display:none">
+            <label>Open Ports</label>
+            <div id="portscan-result"></div>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-subdomain">
+        <div class="page-header">
+          <h1>Subdomain Enumeration</h1>
+          <p>Discover subdomains of a domain via DNS resolution</p>
+        </div>
+        <div class="card">
+          <div class="form-group">
+            <label>Domain</label>
+            <div class="input-row">
+              <input type="text" id="subdomain-domain" class="form-input" placeholder="example.com">
+              <button class="btn btn-primary" onclick="runSubdomain()">Enumerate</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label><input type="checkbox" id="subdomain-large"> Use large wordlist (downloads ~5000-20000 subdomains from SecLists)</label>
+          </div>
+          <div class="form-group">
+            <label><input type="checkbox" id="subdomain-brute"> Brute-force mode (generates ALL combinations a-z0-9)</label>
+            <div class="input-row" style="margin-top:8px">
+              <label style="margin:0">Max length:</label>
+              <input type="number" id="subdomain-maxlen" class="form-input" value="3" min="1" max="6" style="width:80px">
+            </div>
+            <div style="margin-top:8px;font-size:12px;color:var(--muted)">
+              <table style="border-collapse:collapse;">
+                <tr><th style="padding:2px 12px 2px 0;text-align:left;border-bottom:1px solid var(--border);">Max Length</th><th style="padding:2px 12px 2px 0;text-align:left;border-bottom:1px solid var(--border);">Combinations</th><th style="padding:2px 0 2px 0;text-align:left;border-bottom:1px solid var(--border);">Est. Time</th></tr>
+                <tr><td style="padding:2px 12px 2px 0;">1</td><td style="padding:2px 12px 2px 0;">36</td><td style="padding:2px 0;">Instant</td></tr>
+                <tr><td style="padding:2px 12px 2px 0;">2</td><td style="padding:2px 12px 2px 0;">1,332</td><td style="padding:2px 0;">~1 sec</td></tr>
+                <tr><td style="padding:2px 12px 2px 0;">3</td><td style="padding:2px 12px 2px 0;">47,988</td><td style="padding:2px 0;">~1 min</td></tr>
+                <tr><td style="padding:2px 12px 2px 0;">4</td><td style="padding:2px 12px 2px 0;">1,680,948</td><td style="padding:2px 0;">~15 min</td></tr>
+                <tr><td style="padding:2px 12px 2px 0;">5</td><td style="padding:2px 12px 2px 0;">60,466,176</td><td style="padding:2px 0;">Hours</td></tr>
+                <tr><td style="padding:2px 12px 2px 0;">6</td><td style="padding:2px 12px 2px 0;">2,176,782,336</td><td style="padding:2px 0;">Days</td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="form-group" id="subdomain-result-group" style="display:none">
+            <label>Found Subdomains</label>
+            <div class="result-box" id="subdomain-result"></div>
+            <button class="btn btn-copy" onclick="copyResult('subdomain-result')">Copy</button>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-search">
+        <div class="page-header">
+          <h1>Web Search</h1>
+          <p>Search the web [Useless]</p>
+        </div>
+        <div class="card">
+          <div class="form-group">
+            <label>Query</label>
+            <div class="input-row">
+              <input type="text" id="search-query" class="form-input" placeholder="Search the web..." onkeydown="if(event.key==='Enter')runSearch()">
+              <button class="btn btn-primary" onclick="runSearch()">Search</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Max Results</label>
+            <input type="number" id="search-max" class="form-input" value="10" min="1" max="25">
+          </div>
+          <div id="search-results"></div>
+        </div>
+      </div>
+      <div class="page" id="page-api">
+        <div class="page-header">
+          <h1>API Client</h1>
+          <p>Make HTTP requests to any API endpoint</p>
+        </div>
+        <div class="card">
+          <div class="form-row">
+            <div class="form-group" style="flex:0 0 120px">
+              <label>Method</label>
+              <select id="api-method" class="form-select">
+                <option value="GET">GET</option>
+                <option value="POST">POST</option>
+                <option value="PUT">PUT</option>
+                <option value="PATCH">PATCH</option>
+                <option value="DELETE">DELETE</option>
+              </select>
+            </div>
+            <div class="form-group" style="flex:1">
+              <label>URL</label>
+              <input type="url" id="api-url" class="form-input" placeholder="https://api.example.com/endpoint">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Headers (JSON format)</label>
+            <textarea id="api-headers" class="form-textarea" rows="2" placeholder='{"Authorization": "Bearer token123"}'></textarea>
+          </div>
+          <div class="form-group">
+            <label>Body</label>
+            <textarea id="api-body" class="form-textarea" rows="3" placeholder='{"key": "value"}'></textarea>
+          </div>
+          <button class="btn btn-primary" onclick="runApiRequest()">Send</button>
+          <div class="form-group" id="api-result-group" style="display:none">
+            <label>Response</label>
+            <div class="result-box mono" id="api-result"></div>
+            <button class="btn btn-copy" onclick="copyResult('api-result')">Copy</button>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-webhook">
+        <div class="page-header">
+          <h1>Webhook Sender</h1>
+          <p>Send webhooks to Discord and other services</p>
+        </div>
+        <div class="card">
+          <div class="form-group">
+            <label>Webhook URL</label>
+            <input type="url" id="webhook-url" class="form-input" placeholder="https://discord.com/api/webhooks/...">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Custom Name (optional)</label>
+              <input type="text" id="webhook-name" class="form-input" placeholder="Phox Bot">
+            </div>
+            <div class="form-group">
+              <label>Method</label>
+              <select id="webhook-method" class="form-select">
+                <option value="POST">POST</option>
+                <option value="PUT">PUT</option>
+                <option value="PATCH">PATCH</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Payload (JSON)</label>
+            <textarea id="webhook-payload" class="form-textarea" rows="4" placeholder='{"content": "Hello from Phox!"}'></textarea>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="form-group">
+            <label>Discord Embed</label>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="text-sm">Title</label>
+                <input type="text" id="webhook-title" class="form-input" placeholder="Embed title">
+              </div>
+              <div class="form-group">
+                <label class="text-sm">Color (hex)</label>
+                <input type="text" id="webhook-color" class="form-input" placeholder="#ff0000">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="text-sm">Message</label>
+              <textarea id="webhook-message" class="form-textarea" rows="2" placeholder="Embed message content"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="text-sm">Image URL</label>
+              <input type="url" id="webhook-image" class="form-input" placeholder="https://example.com/image.png">
+            </div>
+          </div>
+
+          <button class="btn btn-primary" onclick="runWebhook()">Send Webhook</button>
+          <div class="form-group" id="webhook-result-group" style="display:none">
+            <label>Response</label>
+            <div class="result-box mono" id="webhook-result"></div>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-cloner">
+        <div class="page-header">
+          <h1>Website Cloner</h1>
+          <p>Clone entire websites for offline viewing</p>
+        </div>
+        <div class="card">
+          <div class="form-group">
+            <label>Target URL</label>
+            <input type="url" id="cloner-url" class="form-input" placeholder="https://example.com">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Depth</label>
+              <input type="number" id="cloner-depth" class="form-input" value="2" min="1" max="5">
+            </div>
+            <div class="form-group">
+              <label>Concurrency</label>
+              <input type="number" id="cloner-concurrency" class="form-input" value="5" min="1" max="20">
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="runCloner()">Start Clone</button>
+          <div class="form-group" id="cloner-result-group" style="display:none">
+            <label>Progress</label>
+            <div class="result-box mono" id="cloner-result"></div>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-obfuscate">
+        <div class="page-header">
+          <h1>Python Obfuscator</h1>
+          <p>Obfuscate Python source code to make it harder to read</p>
+        </div>
+        <div class="card">
+          <div class="form-group">
+            <label>Paste Python Code</label>
+            <textarea id="obfuscate-code" class="form-textarea mono" rows="8" placeholder="Paste your Python source code here..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Obfuscation Layers</label>
+            <input type="number" id="obfuscate-layers" class="form-input" value="3" min="1" max="10">
+          </div>
+          <button class="btn btn-primary" onclick="runObfuscate()">Obfuscate</button>
+          <div class="form-group" id="obfuscate-result-group" style="display:none">
+            <label>Obfuscated Code</label>
+            <div class="result-box mono" id="obfuscate-result"></div>
+            <button class="btn btn-copy" onclick="copyResult('obfuscate-result')">Copy</button>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-hashfile">
+        <div class="page-header">
+          <h1>Hash File</h1>
+          <p>Calculate cryptographic hash of a file</p>
+        </div>
+        <div class="card">
+          <div class="form-group">
+            <label>Drop a file here or click to select</label>
+            <div class="form-input" style="display:flex;align-items:center;gap:0.5rem;padding:1rem;cursor:pointer;min-height:80px;justify-content:center;border:2px dashed var(--border);border-radius:8px;" onclick="document.getElementById('hashfile-input').click()">
+              <span class="text-sm muted" id="hashfile-label">No file selected</span>
+              <input type="file" id="hashfile-input" style="display:none" onchange="hashFileSelected()">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Algorithm</label>
+            <select id="hashfile-algo" class="form-select">
+              <option value="md5">MD5</option>
+              <option value="sha1">SHA-1</option>
+              <option value="sha256">SHA-256</option>
+              <option value="sha512">SHA-512</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" onclick="runHashFile()">Hash File</button>
+          <div class="form-group" id="hashfile-result-group" style="display:none">
+            <label>Result</label>
+            <div class="result-box mono" id="hashfile-result"></div>
+            <button class="btn btn-copy" onclick="copyResult('hashfile-result')">Copy</button>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-rand">
+        <div class="page-header">
+          <h1>Random Generator</h1>
+          <p>Generate random strings, numbers, UUIDs, passwords, dice rolls, and coin flips</p>
+        </div>
+        <div class="card">
+          <div class="form-row">
+            <div class="form-group" style="flex:0 0 180px">
+              <label>Type</label>
+              <select id="rand-type" class="form-select" onchange="updateRandOptions()">
+                <option value="string">String</option>
+                <option value="number">Number</option>
+                <option value="hex">Hex String</option>
+                <option value="uuid">UUID</option>
+                <option value="password">Password</option>
+                <option value="dice">Dice Roll</option>
+                <option value="coin">Coin Flip</option>
+              </select>
+            </div>
+            <div class="form-group" id="rand-length-group">
+              <label>Length</label>
+              <input type="number" id="rand-length" class="form-input" value="16" min="1" max="1000">
+            </div>
+            <div class="form-group" id="rand-count-group">
+              <label>Count</label>
+              <input type="number" id="rand-count" class="form-input" value="5" min="1" max="100">
+            </div>
+          </div>
+          <div class="form-row" id="rand-dice-row" style="display:none">
+            <div class="form-group">
+              <label>Number of Dice</label>
+              <input type="number" id="rand-dice" class="form-input" value="2" min="1" max="10">
+            </div>
+            <div class="form-group">
+              <label>Sides per Die</label>
+              <input type="number" id="rand-sides" class="form-input" value="6" min="2" max="100">
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="runRandom()">Generate</button>
+          <div class="form-group" id="rand-result-group" style="display:none">
+            <label>Result</label>
+            <div class="result-box mono" id="rand-result"></div>
+            <button class="btn btn-copy" onclick="copyResult('rand-result')">Copy</button>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-colors">
+        <div class="page-header">
+          <h1>Terminal Colors</h1>
+          <p>Display terminal color palette for ANSI escape codes</p>
+        </div>
+        <div class="card">
+          <div id="colors-display">
+            <p class="muted text-sm">Loading color palette...</p>
+          </div>
+          <div class="form-group mt-2">
+            <label>Preview Color (8-bit)</label>
+            <div class="input-row">
+              <input type="number" id="color-preview-code" class="form-input" value="0" min="0" max="255" placeholder="0-255">
+              <button class="btn btn-primary" onclick="previewColor()">Preview</button>
+            </div>
+            <div class="result-box mt-1" id="color-preview-result" style="display:none"></div>
+          </div>
+        </div>
+      </div>
+      <div class="page" id="page-uuid">
+        <div class="page-header"><h1>UUID Generator</h1><p>Generate UUID v1, v4, or v5</p></div>
+        <div class="card">
+          <div class="form-row">
+            <div class="form-group" style="flex:1"><label>Version</label>
+              <select id="uuid-version" class="form-select"><option value="v4">v4 (Random)</option><option value="v1">v1 (Time-based)</option><option value="v5">v5 (Name-based)</option></select>
+            </div>
+            <div class="form-group" style="flex:1"><label>Count</label>
+              <input type="number" id="uuid-count" class="form-input" value="5" min="1" max="50">
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="runUUID()">Generate UUIDs</button>
+          <button class="btn-copy" onclick="copyResult('uuid-result')">Copy</button>
+          <div class="form-group" style="margin-top:8px"><div class="result-box mono" id="uuid-result" style="display:none"></div></div>
+        </div>
+      </div>
+      <div class="page" id="page-timestamp">
+        <div class="page-header"><h1>Timestamp Converter</h1><p>Convert between Unix, ISO, and human-readable dates</p></div>
+        <div class="card">
+          <button class="btn btn-primary" onclick="runTimestampNow()">Get Current Time</button>
+          <div class="form-group" style="margin-top:8px"><label>Unix timestamp or date string</label>
+            <input type="text" id="ts-value" class="form-input" placeholder="1700000000 or 2024-01-01 12:00:00">
+          </div>
+          <div class="form-row">
+            <button class="btn btn-primary" onclick="runTimestampConvert()">Convert Timestamp</button>
+            <button class="btn btn-secondary" onclick="runTimestampParse()">Parse Date String</button>
+          </div>
+          <div class="form-group" style="margin-top:8px"><div class="result-box mono" id="ts-result" style="display:none"></div></div>
+        </div>
+      </div>
+      <div class="page" id="page-binary">
+        <div class="page-header"><h1>Binary Converter</h1><p>Convert text to/from binary</p></div>
+        <div class="card">
+          <textarea id="binary-text" class="form-textarea mono" rows="4" placeholder="Enter text or binary (01001000 01100101...)"></textarea>
+          <div class="form-row" style="margin-top:8px">
+            <button class="btn btn-primary" onclick="runBinary('to-binary')">Text to Binary</button>
+            <button class="btn btn-primary" onclick="runBinary('to-text')">Binary to Text</button>
+            <button class="btn-copy" onclick="copyResult('binary-result')">Copy</button>
+          </div>
+          <div class="form-group" style="margin-top:8px"><div class="result-box mono" id="binary-result" style="display:none"></div></div>
+        </div>
+      </div>
+      <div class="page" id="page-morse">
+        <div class="page-header"><h1>Morse Code</h1><p>Encode and decode Morse code</p></div>
+        <div class="card">
+          <textarea id="morse-text" class="form-textarea mono" rows="4" placeholder="Enter text or Morse code (. - /)"></textarea>
+          <div class="form-row" style="margin-top:8px">
+            <button class="btn btn-primary" onclick="runMorse('encode')">Text to Morse</button>
+            <button class="btn btn-primary" onclick="runMorse('decode')">Morse to Text</button>
+            <button class="btn-copy" onclick="copyResult('morse-result')">Copy</button>
+          </div>
+          <div class="form-group" style="margin-top:8px"><div class="result-box mono" id="morse-result" style="display:none"></div></div>
+        </div>
+      </div>
+      <div class="page" id="page-colorconv">
+        <div class="page-header"><h1>Color Converter</h1><p>Convert between HEX, RGB, HSL, and Decimal</p></div>
+        <div class="card">
+          <div class="form-group"><label>Color Value</label>
+            <input type="text" id="colorconv-value" class="form-input" placeholder="#ff0000 or rgb(255,0,0) or 16711680">
+          </div>
+          <div class="form-group"><label>Input Format</label>
+            <select id="colorconv-format" class="form-select"><option value="hex">HEX</option><option value="rgb">RGB</option><option value="hsl">HSL</option><option value="decimal">Decimal</option></select>
+          </div>
+          <button class="btn btn-primary" onclick="runColorConvert()">Convert</button>
+          <div class="form-group" style="margin-top:8px"><div class="result-box" id="colorconv-result" style="display:none"></div></div>
+        </div>
+      </div>
+      <div class="page" id="page-lorem">
+        <div class="page-header"><h1>Lorem Ipsum Generator</h1><p>Generate placeholder text</p></div>
+        <div class="card">
+          <div class="form-group"><label>Paragraphs</label>
+            <input type="number" id="lorem-count" class="form-input" value="3" min="1" max="50">
+          </div>
+          <button class="btn btn-primary" onclick="runLorem()">Generate</button>
+          <button class="btn-copy" onclick="copyResult('lorem-result')">Copy</button>
+          <div class="form-group" style="margin-top:8px"><div class="result-box" id="lorem-result" style="display:none"></div></div>
+        </div>
+      </div>
+      <div class="page" id="page-diff">
+        <div class="page-header"><h1>Text Diff</h1><p>Compare two texts and see differences</p></div>
+        <div class="card">
+          <div class="form-row">
+            <div class="form-group" style="flex:1"><label>Text 1</label>
+              <textarea id="diff-text1" class="form-textarea mono" rows="8" placeholder="Original text..."></textarea>
+            </div>
+            <div class="form-group" style="flex:1"><label>Text 2</label>
+              <textarea id="diff-text2" class="form-textarea mono" rows="8" placeholder="Modified text..."></textarea>
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="runDiff()">Compare</button>
+          <div class="form-group" style="margin-top:8px"><div class="result-box mono" id="diff-result" style="display:none"></div></div>
+        </div>
+      </div>
+      <div class="page" id="page-hashlookup">
+        <div class="page-header"><h1>Hash Lookup</h1><p>Look up hashes against common password databases</p></div>
+        <div class="card">
+          <div class="form-group"><label>Hash</label>
+            <input type="text" id="hashlookup-hash" class="form-input mono" placeholder="e.g. 5d41402abc4b2a76b9719d911017c592">
+          </div>
+          <div class="form-group"><label>Algorithm</label>
+            <select id="hashlookup-algo" class="form-select"><option value="auto">Auto-detect</option><option value="md5">MD5</option><option value="sha1">SHA1</option><option value="sha256">SHA256</option><option value="sha512">SHA512</option></select>
+          </div>
+          <button class="btn btn-primary" onclick="runHashLookup()">Lookup</button>
+          <div class="form-group" style="margin-top:8px"><div class="result-box" id="hashlookup-result" style="display:none"></div></div>
+        </div>
+      </div>
+      <div class="page" id="page-settings">
+        <div class="page-header">
+          <h1>Settings</h1>
+          <p>Customize Phox behavior and preferences</p>
+        </div>
+        <div class="card">
+          <div id="settings-list">
+            <p class="muted text-sm">Loading settings...</p>
+          </div>
+          <div class="mt-2">
+            <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
+            <button class="btn btn-secondary" onclick="loadSettings()">Reload</button>
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <h3 style="margin-bottom:12px;color:var(--accent)">Module Visibility</h3>
+          <p class="muted text-sm" style="margin-bottom:12px">Toggle which tools appear in the sidebar and dashboard</p>
+          <div id="module-toggles"></div>
+          <div class="form-row" style="margin-top:12px">
+            <button class="btn btn-primary" onclick="saveModuleConfig()">Save Module Visibility</button>
+            <button class="btn btn-secondary" onclick="resetModuleConfig()">Reset All Visible</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <div class="toast-container" id="toasts"></div>
+  <div class="loader" id="loader">
+    <div class="spinner"></div>
+  </div>
+  <div class="status-bar">
+    <div class="status-left">
+      <span class="status-item">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="status-text">Connected</span>
+      </span>
+    </div>
+    <div class="status-right">
+      <span class="status-item text-xs muted" id="status-version">Phox Tools</span>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
