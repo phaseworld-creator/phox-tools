@@ -129,4 +129,4 @@ Custom commands are stored in `~/.phox/commands/` as Python files.
 
 ## License
 
-MIT
+MIT [Custome]
